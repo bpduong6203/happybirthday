@@ -659,6 +659,20 @@
         }());
         S.init();
     </script>
+    <script>
+        // Biến để lưu trữ hướng màn hình ban đầu
+        let initialOrientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
+
+        window.addEventListener('resize', function() {
+            // Xác định hướng màn hình hiện tại
+            let currentOrientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
+
+            // Nếu hướng màn hình thay đổi so với ban đầu, reload trang
+            if (currentOrientation !== initialOrientation) {
+                location.reload();
+            }
+        });
+    </script>
     <dev>
         <audio autoplay>
             <source src="https://play.imusicvn.com/stream/Mgbb1byycZvy" type="audio/mpeg">
