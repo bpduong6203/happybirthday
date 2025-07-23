@@ -1,94 +1,166 @@
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Happy Birthday</title>
-        <link rel="Shortcut Icon" href="happy.jpg" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <!--<meta itemprop="image" content="./images/fenxiang.png" />-->
-        <style>
-            html {
-                height: 100%;
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Happy Birthday</title>
+    <link rel="Shortcut Icon" href="happy.jpg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--<meta itemprop="image" content="./images/fenxiang.png" />-->
+    <style>
+        /* Ẩn nội dung chính và hiển thị thông báo khi ở chế độ dọc (portrait) */
+        @media screen and (orientation: portrait) {
+            body>*:not(.rotate-device-message) {
+                display: none;
             }
-            body {
-                font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
-                background: #79a8ae;
-                color: #CFEBE4;
-                font-size: 18px;
-                line-height: 2;
-                letter-spacing: 1.2px;
-                margin: 0;
-            }
-            a {
-                color: #ebf7f4;
-            }
-            .body--ready {
-                background: -webkit-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
-                background: -moz-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
-                background: -o-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
-                background: -ms-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
-                background: linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
-            }
-            .text {
+
+            .rotate-device-message {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 position: fixed;
-                bottom: 100px;
-                text-align: center;
-                width: 100%;
-            }
-            canvas {
-                position: absolute;
                 top: 0;
                 left: 0;
-                z-index: 0;
-            }
-            img#logo {
-                width: 128px;
-                background-size: cover;
-                border-radius: 200px;
-                box-shadow: 0px 0px 40px rgba(63, 81, 181, 0.72);
-                border: 3px solid #00a0ff;
-                opacity: 1;
-                margin: 0 auto;
-                margin-top: 20px;
-                margin-bottom: 20px;
-                transition: all 1.0s;
-            }
-            #logo:hover {
-                box-shadow: 0 0 10px #fff;
-                -webkit-box-shadow: 0 0 19px #fff;
-                transform: rotate(360deg);
-                -ms-transform: rotate(360deg); /* IE 9 */
-                -moz-transform: rotate(360deg); /* Firefox */
-                -webkit-transform: rotate(360deg); /* Safari 和 Chrome */
-                -o-transform: rotate(360deg); /* Opera */
-                filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-            }
-            .cs {
                 width: 100%;
                 height: 100%;
-                margin: 0 auto;
-                position: absolute;
+                background-color: #333;
+                color: white;
+                font-size: 24px;
                 text-align: center;
+                z-index: 9999;
+                flex-direction: column;
+                /* Để căn giữa theo chiều dọc */
             }
-            .text {
-                position: fixed;
-                bottom: 20px;
-                text-align: center;
-                width: 100%;
-                font-weight: bold;
+
+            .rotate-device-message img {
+                width: 100px;
+                /* Kích thước icon hoặc hình ảnh hướng dẫn */
+                height: 100px;
+                margin-top: 20px;
+                animation: rotateIcon 1.5s infinite alternate;
+                /* Hiệu ứng xoay */
             }
-            .text-right {
-                position: fixed;
-                bottom: 50px;
-                text-align: right;
-                width: 100%;
-                font-weight: bold;
+        }
+
+        /* Hiển thị nội dung chính khi ở chế độ ngang (landscape) */
+        @media screen and (orientation: landscape) {
+            .rotate-device-message {
+                display: none;
             }
-        </style>
-    
-    </head>
-    
-    <body>
+        }
+
+        @keyframes rotateIcon {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(90deg);
+            }
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+            background: #79a8ae;
+            color: #CFEBE4;
+            font-size: 18px;
+            line-height: 2;
+            letter-spacing: 1.2px;
+            margin: 0;
+        }
+
+        a {
+            color: #ebf7f4;
+        }
+
+        .body--ready {
+            background: -webkit-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+            background: -moz-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+            background: -o-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+            background: -ms-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+            background: linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+        }
+
+        .text {
+            position: fixed;
+            bottom: 100px;
+            text-align: center;
+            width: 100%;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            display: block;
+        }
+
+        img#logo {
+            width: 128px;
+            background-size: cover;
+            border-radius: 200px;
+            box-shadow: 0px 0px 40px rgba(63, 81, 181, 0.72);
+            border: 3px solid #00a0ff;
+            opacity: 1;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            transition: all 1.0s;
+        }
+
+        #logo:hover {
+            box-shadow: 0 0 10px #fff;
+            -webkit-box-shadow: 0 0 19px #fff;
+            transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            /* IE 9 */
+            -moz-transform: rotate(360deg);
+            /* Firefox */
+            -webkit-transform: rotate(360deg);
+            /* Safari 和 Chrome */
+            -o-transform: rotate(360deg);
+            /* Opera */
+            filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }
+
+        .cs {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            position: absolute;
+            text-align: center;
+        }
+
+        .text {
+            position: fixed;
+            bottom: 20px;
+            text-align: center;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .text-right {
+            position: fixed;
+            bottom: 50px;
+            text-align: right;
+            width: 100%;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="rotate-device-message">
+        <p>Vui lòng xoay ngang điện thoại để có trải nghiệm tốt nhất!</p>
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXJvdGF0ZS1jYnMiPjxyZWN0IHdpZHRoPSIxOCIgaGVpZ2h0PSIxMiIgeD0iMyIgeT0iNiIgc3RyLWtlPSJjdXJyZW50Q29sb3IiIHJvdW5kLXk9IjIiIHJvdW5kLXg9IjIiLz48cGF0aCBkPSJNMTIgMTh2Mi41YTIgMiAwIDAgMS0yIDJoLTRhMiAyIDAgMCAxLTItMkw0IDhIMiIvPjxwYXRoIGQ9Ik0xMiA2VjMuNWEyIDIgMCAwIDEgMi0yYTRhNCA0IDAgMCAxIDQgNGwxLjUgMi41TDIwIDgiLz48cGF0aCBkPSJNNCA2aC4wMU0yMCA2aC4wMSIvPjxwYXRoIGQ9Ik00IDE4aC4wMU0yMCAxOGguMDEiLz48L3N2Zz4=" alt="Rotate Device">
+    </div>
+
     <div class="cs">
         <img src="happy.jpg" id="logo">
     </div>
@@ -105,6 +177,9 @@
         }
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
+
+        const canvas2 = document.querySelector('.canvas'); // Thêm dòng này
+        const ctx2 = canvas2.getContext('2d'); // Thêm dòng này
 
         const letters = 'HAPPY BIRTHDAY'.split('');
         const fontSize = 16;
@@ -165,14 +240,14 @@
                     requestFrame.call(window, this.loop.bind(this));
                 },
                 adjustCanvas: function () {
-                    canvas.width = window.innerWidth - 100;
-                    canvas.height = window.innerHeight - 30;
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
                 },
                 clearFrame: function () {
                     context.clearRect(0, 0, canvas.width, canvas.height);
                 },
                 getArea: function () {
-                    return {w: canvas.width, h: canvas.height};
+                    return { w: canvas.width, h: canvas.height };
                 },
                 drawCircle: function (p, c) {
                     context.fillStyle = c.render();
@@ -429,7 +504,7 @@
                         p += gap * 4 * shapeCanvas.width;
                     }
                 }
-                return {dots: dots, w: w + fx, h: h + fy};
+                return { dots: dots, w: w + fx, h: h + fy };
             }
             function setFontSize(s) {
                 shapeContext.font = 'bold ' + s + 'px ' + fontFamily;
@@ -489,7 +564,7 @@
                             }));
                         }
                     }
-                    return {dots: dots, w: width, h: height};
+                    return { dots: dots, w: width, h: height };
                 }
             };
         }());
@@ -591,4 +666,5 @@
     </dev>
 
 </body>
+
 </html>
